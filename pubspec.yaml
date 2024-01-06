@@ -18,6 +18,8 @@ dependencies:
   injectable:
   json_annotation:
   freezed_annotation:
+  hydrated_bloc:
+  path_provider:
   equatable:
   dartz:
   flutter_screenutil:
