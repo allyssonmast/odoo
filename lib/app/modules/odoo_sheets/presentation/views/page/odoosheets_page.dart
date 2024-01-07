@@ -1,7 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../../config/shered_widgets/noitem/noitem.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:odoo/app/config/dependence_injection/injection.dart';
+import 'package:odoo/app/config/shered_widgets/erro/erro_widget.dart';
+import 'package:odoo/app/modules/odoo_sheets/presentation/views/widgets/empty_odoo.dart';
+import 'package:odoo/app/modules/timer_sheets/presentation/bloc/timesheet_bloc.dart';
+import 'package:odoo/app/modules/timer_sheets/presentation/views/widgets/timesheet_listview_widget.dart';
 
 @RoutePage()
 class OdooSheetsPage extends StatelessWidget {
@@ -9,18 +13,19 @@ class OdooSheetsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: NoItemWidget(
-        icon: Center(
-          child: Text(
-            'odoo',
-            style: Theme.of(context).textTheme.displaySmall,
-          ),
-        ),
-        title: 'You dont have any odoo timesheets',
-        subTitle:
-        'Synchronize with odoo to get started',
-      ),
+    return BlocProvider<TimesheetBloc>(
+      create: (_) => getIt<TimesheetBloc>(),
+      child: BlocBuilder<TimesheetBloc, TimeSheetsState>(
+          builder: (context, state) {
+        return state.map(
+          initial: (ini) => const EmptyOdooTimeSheets(),
+          loading: (loading) =>
+              const Center(child: CircularProgressIndicator()),
+          success: (success) => TimeSheetListView(list: success.timeSheets),
+          error: (error) => const FailureWidget(),
+          empty: (empty) => const EmptyOdooTimeSheets(),
+        );
+      }),
     );
   }
 }

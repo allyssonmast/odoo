@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:odoo/app/modules/settings/presentation/cubit/settings_cubit.dart';
 import 'package:odoo/app/modules/settings/presentation/views/widgets/custm_divider.dart';
 import 'package:odoo/app/modules/settings/presentation/views/widgets/custom_listview.dart';
 
@@ -28,6 +30,7 @@ class _SettingsPageState extends State<SettingsPage> {
   ];
   @override
   Widget build(BuildContext context) {
+    var cubit = context.read<SettingsCubit>();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Settings'),
@@ -40,8 +43,10 @@ class _SettingsPageState extends State<SettingsPage> {
             children: [
               Card(
                 child: SwitchListTile(
-                  value: false,
-                  onChanged: (onChanged) {},
+                  value: cubit.state==Brightness.dark,
+                  onChanged: (onChanged) {
+                    cubit.toggleBrightness();
+                  },
                   title: const Text('Light Theme'),
                 ),
               ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:odoo/app/modules/settings/presentation/cubit/settings_cubit.dart';
 
 import 'app/config/auto_router/routes_imports.dart';
 
@@ -20,12 +22,22 @@ class _MyAppState extends State<MyApp> {
         useInheritedMediaQuery: true,
         splitScreenMode: true,
         builder: (context, child) {
-          return MaterialApp.router(
-            title: 'odoo app',
-            debugShowCheckedModeBanner: false,
-            theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.blue),
-            routeInformationParser: appRouter.defaultRouteParser(),
-            routerDelegate: appRouter.delegate(),
+          return BlocProvider(
+            create: (context) => SettingsCubit(),
+            child: BlocBuilder<SettingsCubit, Brightness>(
+                builder: (context, state) {
+              return MaterialApp.router(
+                title: 'odoo app',
+                debugShowCheckedModeBanner: false,
+                theme: ThemeData(
+                  useMaterial3: true,
+                  colorSchemeSeed: Colors.blue,
+                  brightness: state
+                ),
+                routeInformationParser: appRouter.defaultRouteParser(),
+                routerDelegate: appRouter.delegate(),
+              );
+            }),
           );
         });
   }

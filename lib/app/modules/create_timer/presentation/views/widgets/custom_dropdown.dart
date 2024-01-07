@@ -21,7 +21,7 @@ class _DropdownsWidgetState extends State<DropdownsWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom:24.0),
+      padding: const EdgeInsets.only(bottom: 24.0),
       child: DropdownButtonFormField<String>(
         value: selectedOption,
         onChanged: (value) {
@@ -35,7 +35,17 @@ class _DropdownsWidgetState extends State<DropdownsWidget> {
         items: widget.dropdownOptions.map((option) {
           return DropdownMenuItem<String>(
             value: option,
-            child: Text(option),
+            child: Row(
+              children: [
+                if (colorMap.containsKey(option))
+                  CircleAvatar(
+                    radius: 10,
+                    backgroundColor: colorMap[option],
+                  ),
+                const SizedBox(width: 8),
+                Text(option),
+              ],
+            ),
           );
         }).toList(),
         icon: const Icon(Icons.keyboard_arrow_down_sharp),
@@ -47,3 +57,10 @@ class _DropdownsWidgetState extends State<DropdownsWidget> {
     );
   }
 }
+
+Map colorMap = {
+  'red': Colors.red,
+  'green': Colors.green,
+  'yellow': Colors.yellow,
+  'blue': Colors.blue,
+};

@@ -1,6 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:odoo/app/config/auto_router/routes_imports.gr.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:odoo/app/config/dependence_injection/injection.dart';
+import 'package:odoo/app/config/shered_widgets/noitem/noitem.dart';
+import 'package:odoo/app/modules/projects/presentation/bloc/project_bloc.dart';
+import 'package:odoo/app/modules/projects/presentation/views/widgets/app_bar.dart';
+import 'package:odoo/app/modules/projects/presentation/views/widgets/projects_listview.dart';
 
 @RoutePage()
 class ProjectsPage extends StatefulWidget {
@@ -14,49 +19,25 @@ class _ProjectsPageState extends State<ProjectsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Projects',
-          style: Theme.of(context).textTheme.titleLarge,
-        ),
-        actions: [
-          Card(
-            margin: const EdgeInsets.only(right: 8),
-            clipBehavior: Clip.antiAlias,
-            child: IconButton(
-              onPressed: () {
-                context.router.push(const CreateProjectsPageRoute());
-              },
-              icon: const Icon(Icons.add),
-            ),
-          )
-        ],
+      appBar: prejectsAppBar(context),
+      body: BlocProvider(
+        create: (_) => getIt<ProjectBloc>(),
+        child:
+            BlocBuilder<ProjectBloc, ProjectState>(builder: (context, state) {
+          if (state is ProjectStateLoaded) {
+            return state.task.isNotEmpty
+                ? ProjectListView(task: state.task)
+                : noProject();
+          }
+          return noProject();
+        }),
       ),
-      body: ListView.builder(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          itemCount: 5,
-          itemBuilder: (_, index) {
-            return Card(
-              clipBehavior: Clip.antiAlias,
-              child: ListTile(
-                onTap: () {},
-                leading: Container(
-                  color: Colors.amber,
-                  width: 2,
-                  height: double.maxFinite,
-                ),
-                horizontalTitleGap: 0,
-                title: const Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(Icons.star_border),
-                    Text('S0069: HL cafe'),
-                  ],
-                ),
-                subtitle: Text('6 tasks'),
-              ),
-            );
-          }),
     );
   }
 }
+
+Widget noProject() => const NoItemWidget(
+    title: 'No projects yet',
+    icon: Icon(Icons.star_purple500_outlined, size: 100),
+    subTitle:
+        'You can mark a project as favorite either an the timer creation page o within an existing project');
