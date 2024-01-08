@@ -1,0 +1,23 @@
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+class TimeCustomer extends StatelessWidget {
+  final DateTime time;
+  const TimeCustomer({Key? key, required this.time}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    String getCustomTime(String key) {
+      return DateFormat(key).format(time);
+    }
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(getCustomTime('EEEE')),
+        Text(getCustomTime('dd.MM.yyyy'),
+            style: Theme.of(context).textTheme.headlineSmall),
+        Text('Start Time ${getCustomTime('MM:hh')}'),
+      ],
+    );
+  }
+}

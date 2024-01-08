@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../config/auto_router/routes_imports.gr.dart';
+import '../../../../config/auto_router/routes_imports.gr.dart';
 
 AppBar prejectsAppBar(BuildContext context) => AppBar(
       title: Text(

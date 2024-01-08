@@ -22,6 +22,7 @@ class TimesheetBloc extends Bloc<TimesheetEvent, TimeSheetsState> {
     emit(const _Loading());
     await Future.delayed(const Duration(seconds: 2));
     var result = await getTimeSheetUsecase.getTimesheets();
+
     result.fold(
       (l) => emit(_Error(l.message)),
       (r) {

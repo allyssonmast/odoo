@@ -33,6 +33,7 @@ class TimeSheetRepositoryImp implements TimeSheetRepository {
 
 List<Timesheet> fakeTimeSheets = List.generate(5, (index) {
   return Timesheet(
+    isCountin: false,
     startTime: DateTime.now().subtract(Duration(days: index)),
     endTime: DateTime.now(),
     description: 'Description ${index + 1}',
@@ -54,12 +55,14 @@ List<Timesheet> fakeTimeSheets = List.generate(5, (index) {
         text: 'Comment 1',
       ),
     ],
-    associatedInvoices: [
-      Invoice(
+    associatedRecords: [
+      Records(
         invoiceNumber: 'INV${index + 1}',
         amount: 100.0,
+        duration: const Duration(seconds: 0),
         issuedDate: DateTime.now().subtract(Duration(days: index)),
       ),
     ],
+    favorite: index % 2 == 0 ? false : true,
   );
 });

@@ -21,6 +21,7 @@ class CustomTextField extends StatelessWidget {
         keyboardType: keyboardType,
         controller: controller,
         onSaved: onSaved,
+        autofocus: false,
         validator: (value) {
           if (value == null || value.isEmpty) {
             return 'Please enter a project name';

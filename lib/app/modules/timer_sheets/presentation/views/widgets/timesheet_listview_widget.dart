@@ -10,7 +10,7 @@ class TimeSheetListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       itemCount: list.length,
       itemBuilder: (_, index) {
         return TimeSheetAdapter(timeSheet: list[index]);

@@ -6,32 +6,38 @@ part of 'timesheet.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Timesheet _$TimesheetFromJson(Map<String, dynamic> json) => Timesheet(
+_$TimesheetImpl _$$TimesheetImplFromJson(Map<String, dynamic> json) =>
+    _$TimesheetImpl(
       startTime: DateTime.parse(json['startTime'] as String),
       endTime: DateTime.parse(json['endTime'] as String),
       description: json['description'] as String,
+      favorite: json['favorite'] as bool,
       associatedProject: json['associatedProject'] as String,
       responsibleUser: json['responsibleUser'] as String,
       task: Task.fromJson(json['task'] as Map<String, dynamic>),
+      isCountin: json['isCountin'] as bool,
       taskDuration: Duration(microseconds: json['taskDuration'] as int),
       tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
       comments: (json['comments'] as List<dynamic>)
           .map((e) => Comment.fromJson(e as Map<String, dynamic>))
           .toList(),
-      associatedInvoices: (json['associatedInvoices'] as List<dynamic>)
-          .map((e) => Invoice.fromJson(e as Map<String, dynamic>))
+      associatedRecords: (json['associatedRecords'] as List<dynamic>)
+          .map((e) => Records.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$TimesheetToJson(Timesheet instance) => <String, dynamic>{
+Map<String, dynamic> _$$TimesheetImplToJson(_$TimesheetImpl instance) =>
+    <String, dynamic>{
       'startTime': instance.startTime.toIso8601String(),
       'endTime': instance.endTime.toIso8601String(),
       'description': instance.description,
+      'favorite': instance.favorite,
       'associatedProject': instance.associatedProject,
       'responsibleUser': instance.responsibleUser,
       'task': instance.task,
+      'isCountin': instance.isCountin,
       'taskDuration': instance.taskDuration.inMicroseconds,
       'tags': instance.tags,
       'comments': instance.comments,
-      'associatedInvoices': instance.associatedInvoices,
+      'associatedRecords': instance.associatedRecords,
     };

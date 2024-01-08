@@ -1,40 +1,28 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../create_projects/domain/entities/task.dart';
-import 'package:json_annotation/json_annotation.dart';
-
 import 'comment.dart';
 import 'invoice.dart';
 
+part 'timesheet.freezed.dart';
 part 'timesheet.g.dart';
 
-@JsonSerializable()
-class Timesheet {
-  DateTime startTime;
-  DateTime endTime;
-  String description;
-  String associatedProject;
-  String responsibleUser;
-  Task task;
-  Duration taskDuration;
-  List<String> tags;
-  List<Comment> comments;
-  List<Invoice> associatedInvoices;
-
-  Timesheet({
-    required this.startTime,
-    required this.endTime,
-    required this.description,
-    required this.associatedProject,
-    required this.responsibleUser,
-    required this.task,
-    required this.taskDuration,
-    required this.tags,
-    required this.comments,
-    required this.associatedInvoices,
-  });
+@freezed
+class Timesheet with _$Timesheet {
+  const factory Timesheet({
+    required DateTime startTime,
+    required DateTime endTime,
+    required String description,
+    required bool favorite,
+    required String associatedProject,
+    required String responsibleUser,
+    required Task task,
+    required bool isCountin,
+    required Duration taskDuration,
+    required List<String> tags,
+    required List<Comment> comments,
+    required List<Records> associatedRecords,
+  }) = _Timesheet;
 
   factory Timesheet.fromJson(Map<String, dynamic> json) =>
       _$TimesheetFromJson(json);
-
-  Map<String, dynamic> toJson() => _$TimesheetToJson(this);
 }
-

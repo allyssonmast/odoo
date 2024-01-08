@@ -1,6 +1,8 @@
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../create_projects/domain/entities/task.dart';
+import '../../create_projects/domain/entities/task.dart';
+
 
 part 'project.freezed.dart';
 part 'project.g.dart';

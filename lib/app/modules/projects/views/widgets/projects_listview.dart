@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:odoo/app/modules/projects/presentation/views/widgets/project_adapter.dart';
 
-import '../../../domain/entities/project.dart';
+import '../../model/project.dart';
+import 'project_adapter.dart';
 
 class ProjectListView extends StatelessWidget {
   final List<Project> task;

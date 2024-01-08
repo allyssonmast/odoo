@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:odoo/app/config/dependence_injection/injection.dart';
 import 'package:odoo/app/config/shered_widgets/noitem/noitem.dart';
-import 'package:odoo/app/modules/projects/presentation/bloc/project_bloc.dart';
-import 'package:odoo/app/modules/projects/presentation/views/widgets/app_bar.dart';
-import 'package:odoo/app/modules/projects/presentation/views/widgets/projects_listview.dart';
+
+import '../../bloc/project_bloc.dart';
+import '../widgets/app_bar.dart';
+import '../widgets/projects_listview.dart';
 
 @RoutePage()
 class ProjectsPage extends StatefulWidget {
@@ -24,12 +25,9 @@ class _ProjectsPageState extends State<ProjectsPage> {
         create: (_) => getIt<ProjectBloc>(),
         child:
             BlocBuilder<ProjectBloc, ProjectState>(builder: (context, state) {
-          if (state is ProjectStateLoaded) {
-            return state.task.isNotEmpty
-                ? ProjectListView(task: state.task)
-                : noProject();
-          }
-          return noProject();
+          return state.allProjects.isNotEmpty
+              ? ProjectListView(task: state.allProjects)
+              : noProject();
         }),
       ),
     );

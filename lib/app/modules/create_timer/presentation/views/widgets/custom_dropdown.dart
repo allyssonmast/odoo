@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class DropdownsWidget extends StatefulWidget {
-  final List<String> dropdownOptions;
+  final List<dynamic> dropdownOptions;
   final String title;
-  final Function(String)? onDropdownChanged;
+  final Function(dynamic)? onDropdownChanged;
 
   DropdownsWidget({
     required this.dropdownOptions,
@@ -16,13 +16,13 @@ class DropdownsWidget extends StatefulWidget {
 }
 
 class _DropdownsWidgetState extends State<DropdownsWidget> {
-  String? selectedOption;
+  dynamic selectedOption;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 24.0),
-      child: DropdownButtonFormField<String>(
+      child: DropdownButtonFormField<dynamic>(
         value: selectedOption,
         onChanged: (value) {
           setState(() {
@@ -32,18 +32,24 @@ class _DropdownsWidgetState extends State<DropdownsWidget> {
             widget.onDropdownChanged!(value!);
           }
         },
+        validator: (dynamic value) {
+          if (value == null || value.name.isEmpty) {
+            return 'Please enter a ${widget.title}';
+          }
+          return null;
+        },
         items: widget.dropdownOptions.map((option) {
-          return DropdownMenuItem<String>(
+          return DropdownMenuItem<dynamic>(
             value: option,
             child: Row(
               children: [
-                if (colorMap.containsKey(option))
+                if (colorMap.containsKey(option.name))
                   CircleAvatar(
                     radius: 10,
-                    backgroundColor: colorMap[option],
+                    backgroundColor: colorMap[option.name],
                   ),
                 const SizedBox(width: 8),
-                Text(option),
+                Text(option.name),
               ],
             ),
           );

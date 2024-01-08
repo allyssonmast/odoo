@@ -2,18 +2,20 @@ import 'package:json_annotation/json_annotation.dart';
 part 'invoice.g.dart';
 
 @JsonSerializable()
-class Invoice {
+class Records {
   String invoiceNumber;
   DateTime issuedDate;
   double amount;
+  Duration duration;
 
-  Invoice(
+  Records(
       {required this.invoiceNumber,
       required this.issuedDate,
+        required this.duration,
       required this.amount});
 
-  factory Invoice.fromJson(Map<String, dynamic> json) =>
-      _$InvoiceFromJson(json);
+  factory Records.fromJson(Map<String, dynamic> json) =>
+      _$RecordsFromJson(json);
 
-  Map<String, dynamic> toJson() => _$InvoiceToJson(this);
+  Map<String, dynamic> toJson() => _$RecordsToJson(this);
 }

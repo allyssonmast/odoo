@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:odoo/app/config/auto_router/routes_imports.gr.dart';
 import 'package:odoo/app/config/dependence_injection/injection.dart';
+import 'package:odoo/app/modules/local_sheets/bloc/local_sheets_bloc.dart';
 import 'package:odoo/app/modules/timer_sheets/presentation/bloc/timesheet_bloc.dart';
 
 import '../widgets/center_icon.dart';
@@ -20,9 +21,13 @@ class _TimerSheetsPageState extends State<TimerSheetsPage> {
   @override
   Widget build(BuildContext context) {
     var themeContext = Theme.of(context);
-    return BlocProvider<TimesheetBloc>(
-      create: (_) =>
-          getIt<TimesheetBloc>()..add(const TimesheetEvent.started()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<TimesheetBloc>(
+            create: (_) =>
+                getIt<TimesheetBloc>()..add(const TimesheetEvent.started())),
+        BlocProvider<LocalSheetsBloc>(create: (_) => getIt<LocalSheetsBloc>()),
+      ],
       child: BlocBuilder<TimesheetBloc, TimeSheetsState>(
           builder: (context, state) {
         return AutoTabsRouter.tabBar(

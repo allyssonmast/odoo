@@ -31,3 +31,32 @@ enum TaskStatus {
   @JsonValue('Pending')
   pending,
 }
+List<Task> fakeTasksList() {
+  return [
+    Task(
+      name: 'Task 1',
+      description: 'Description for Task 1',
+      status: TaskStatus.inProgress,
+      deadline: DateTime.now().add(const Duration(days: 5)),
+      responsible: 'John Doe',
+      timesheets: [],
+    ),
+    Task(
+      name: 'Task 2',
+      description: 'Description for Task 2',
+      status: TaskStatus.completed,
+      deadline: DateTime.now().add(const Duration(days: 10)),
+      responsible: 'Jane Smith',
+      timesheets: [],
+    ),
+    Task(
+      name: 'Task 3',
+      description: 'Description for Task 3',
+      status: TaskStatus.pending,
+      deadline: DateTime.now().add(const Duration(days: 15)),
+      responsible: 'Bob Johnson',
+      timesheets: [],
+    ),
+    // Add more tasks as needed
+  ];
+}

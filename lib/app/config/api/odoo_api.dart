@@ -1,8 +1,9 @@
 import 'package:chopper/chopper.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import 'package:odoo/app/modules/projects/domain/entities/project.dart';
 import 'package:odoo/app/modules/timer_sheets/domain/entities/timesheet.dart';
+
+import '../../modules/projects/model/project.dart';
 
 part 'odoo_api.chopper.dart';
 

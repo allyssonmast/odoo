@@ -18,13 +18,14 @@ class AppRouter extends $AppRouter {
                 children: [
                   AutoRoute(page: FavoritiesSheetsPageRoute.page, path: FAVORITIESSHEETS),
                   AutoRoute(page: OdooSheetsPageRoute.page, path: ODOOSHEETS),
-                  AutoRoute(page: LocalSheetsPageRoute.page, path: LOCALSHEETS),
+                  AutoRoute(page: LocalSheetsPageRoute.page, path: LOCALSHEETS,children: []),
                 ]),
             AutoRoute(page: ProjectsPageRoute.page, path: PROJECTS),
             AutoRoute(page: SettingsPageRoute.page, path: SETTINGS),
           ],
         ),
         AutoRoute(page: CreateTimerPageRoute.page, path: CREATETIMER),
+        AutoRoute(page: TaskDetailsPageRoute.page, path: TASKEDETAILS),
         AutoRoute(page: CreateProjectsPageRoute.page, path: CREATEPROJECTS),
       ];
 }

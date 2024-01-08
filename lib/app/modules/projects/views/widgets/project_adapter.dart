@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:odoo/app/modules/projects/domain/entities/project.dart';
-
-import '../../../../create_timer/presentation/views/widgets/custom_dropdown.dart';
+import '../../../create_timer/presentation/views/widgets/custom_dropdown.dart';
+import '../../model/project.dart';
 
 class ProjectAdapter extends StatelessWidget {
   final Project project;
@@ -19,13 +18,10 @@ class ProjectAdapter extends StatelessWidget {
           height: double.maxFinite,
         ),
         horizontalTitleGap: 0,
-        title: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Icon(Icons.star_border),
-            Text(project.name),
-          ],
-        ),
+        title: Text(project.name),
+        trailing: project.isFavorite
+            ? const Icon(Icons.star)
+            : const Icon(Icons.star_border),
         subtitle: Text('${project.tasks.length} tasks'),
       ),
     );
