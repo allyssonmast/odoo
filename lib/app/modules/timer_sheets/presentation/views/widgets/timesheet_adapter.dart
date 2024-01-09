@@ -64,18 +64,9 @@ class _TimeSheetAdapterState extends State<TimeSheetAdapter> {
                   ),
                 ),
                 ActionChip.elevated(
-                  onPressed:widget.timeSheet.associatedRecords.isEmpty? () {
-                    if (widget.timeSheet.isCountin) {
-                      getIt<LocalSheetsBloc>().add(UpdateTimeSheets(
-                          timesheet:
-                              widget.timeSheet.copyWith(isCountin: false)));
-                    } else {
-                      getIt<LocalSheetsBloc>().add(UpdateTimeSheets(
-                          timesheet:
-                              widget.timeSheet.copyWith(isCountin: true)));
-                      _startCounting();
-                    }
-                  }:null,
+                  onPressed: widget.timeSheet.associatedRecords.isEmpty
+                      ? _startCounting
+                      : null,
                   avatar: Icon(
                     widget.timeSheet.isCountin ? Icons.pause : Icons.play_arrow,
                   ),
@@ -104,5 +95,8 @@ class _TimeSheetAdapterState extends State<TimeSheetAdapter> {
                     widget.timeSheet.taskDuration))));
       }
     });
+    getIt<LocalSheetsBloc>().add(UpdateTimeSheets(
+        timesheet:
+            widget.timeSheet.copyWith(isCountin: !widget.timeSheet.isCountin)));
   }
 }

@@ -19,6 +19,7 @@ class TimeSheetCard extends StatefulWidget {
 class _TimeSheetCardState extends State<TimeSheetCard> {
   late int seconds;
   late Timesheet timesheet;
+
   @override
   void initState() {
     super.initState();
@@ -29,9 +30,8 @@ class _TimeSheetCardState extends State<TimeSheetCard> {
 
   @override
   Widget build(BuildContext context) {
-    var timesheet = getIt<LocalSheetsBloc>().state.localTimeSheets.firstWhere(
+    timesheet = getIt<LocalSheetsBloc>().state.localTimeSheets.firstWhere(
         (element) => element.startTime == widget.timesheet.startTime);
-
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -42,8 +42,8 @@ class _TimeSheetCardState extends State<TimeSheetCard> {
               children: [
                 TimeCustomer(time: timesheet.startTime),
                 const Spacer(),
-                if(timesheet.associatedRecords.isNotEmpty)
-                const ActionChip.elevated(label: Text('Completed'))
+                if (timesheet.associatedRecords.isNotEmpty)
+                  const ActionChip.elevated(label: Text('Completed'))
               ],
             ),
             Row(
@@ -79,18 +79,7 @@ class _TimeSheetCardState extends State<TimeSheetCard> {
                     )),
                 IconButton(
                     onPressed: timesheet.associatedRecords.isEmpty
-                        ? () {
-                            if (timesheet.isCountin) {
-                              getIt<LocalSheetsBloc>().add(UpdateTimeSheets(
-                                  timesheet:
-                                      timesheet.copyWith(isCountin: false)));
-                            } else {
-                              getIt<LocalSheetsBloc>().add(UpdateTimeSheets(
-                                  timesheet:
-                                      timesheet.copyWith(isCountin: true)));
-                              _startCounting(timesheet);
-                            }
-                          }
+                        ? _startCounting
                         : null,
                     icon: Icon(
                         timesheet.isCountin ? Icons.pause : Icons.play_arrow,
@@ -123,9 +112,9 @@ class _TimeSheetCardState extends State<TimeSheetCard> {
     );
   }
 
-  void _startCounting(Timesheet timesheet) {
+  void _startCounting() {
     Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (timesheet.isCountin) {
+      if (!timesheet.isCountin) {
         timer.cancel();
       } else {
         setState(() {
@@ -137,5 +126,7 @@ class _TimeSheetCardState extends State<TimeSheetCard> {
                     (Duration(seconds: seconds) + timesheet.taskDuration))));
       }
     });
+    getIt<LocalSheetsBloc>().add(UpdateTimeSheets(
+        timesheet: timesheet.copyWith(isCountin: !timesheet.isCountin)));
   }
 }
