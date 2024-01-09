@@ -10,13 +10,15 @@ class TimeCustomer extends StatelessWidget {
     String getCustomTime(String key) {
       return DateFormat(key).format(time);
     }
+
+    var textTheme = Theme.of(context).textTheme;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(getCustomTime('EEEE')),
-        Text(getCustomTime('dd.MM.yyyy'),
-            style: Theme.of(context).textTheme.headlineSmall),
-        Text('Start Time ${getCustomTime('MM:hh')}'),
+        Text(getCustomTime('EEEE'), style: textTheme.bodySmall),
+        Text(getCustomTime('dd.MM.yyyy'), style: textTheme.headlineSmall),
+        Text('Start Time ${getCustomTime('MM:hh')}',
+            style: textTheme.labelLarge),
       ],
     );
   }

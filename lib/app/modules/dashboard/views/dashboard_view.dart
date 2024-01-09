@@ -16,7 +16,7 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     return AutoTabsRouter(
       routes: const [
-       TimerSheetsPageRoute(),
+        TimerSheetsPageRoute(),
         ProjectsPageRoute(),
         SettingsPageRoute(),
       ],
@@ -33,7 +33,8 @@ class _DashboardPageState extends State<DashboardPage> {
               onDestinationSelected: tabsRouter.setActiveIndex,
               destinations: const [
                 NavigationDestination(
-                    label: 'Timesheets', icon: Icon(Icons.access_time_filled_outlined)),
+                    label: 'Timesheets',
+                    icon: Icon(Icons.access_time_filled_outlined)),
                 NavigationDestination(
                   label: 'Projects',
                   icon: Icon(Icons.folder_copy),
