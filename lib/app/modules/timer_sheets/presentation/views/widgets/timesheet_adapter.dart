@@ -3,10 +3,11 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:odoo/app/config/auto_router/routes_imports.gr.dart';
 import 'package:odoo/app/config/dependence_injection/injection.dart';
 import 'package:odoo/app/modules/local_sheets/bloc/local_sheets_bloc.dart';
 import 'package:odoo/app/modules/timer_sheets/domain/entities/timesheet.dart';
+
+import '../../../../../config/auto_router/routes_imports.gr.dart';
 
 class TimeSheetAdapter extends StatefulWidget {
   final Timesheet timeSheet;

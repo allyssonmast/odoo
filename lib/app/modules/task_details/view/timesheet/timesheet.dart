@@ -5,7 +5,7 @@ import 'package:odoo/app/modules/timer_sheets/domain/entities/timesheet.dart';
 
 import '../../../../config/dependence_injection/injection.dart';
 import '../../../local_sheets/bloc/local_sheets_bloc.dart';
-import '../completed_records.dart';
+import 'completed_records.dart';
 
 class TimeSheetDetails extends StatefulWidget {
   final Timesheet timesheet;

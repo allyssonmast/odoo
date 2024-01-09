@@ -38,7 +38,14 @@ class _TimeSheetCardState extends State<TimeSheetCard> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TimeCustomer(time: timesheet.startTime),
+            Row(
+              children: [
+                TimeCustomer(time: timesheet.startTime),
+                const Spacer(),
+                if(timesheet.associatedRecords.isNotEmpty)
+                const ActionChip.elevated(label: Text('Completed'))
+              ],
+            ),
             Row(
               children: [
                 Text(

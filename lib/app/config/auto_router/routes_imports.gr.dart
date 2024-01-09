@@ -23,7 +23,7 @@ import 'package:odoo/app/modules/odoo_sheets/views/page/odoosheets_page.dart'
     as _i6;
 import 'package:odoo/app/modules/projects/views/page/projects_page.dart' as _i7;
 import 'package:odoo/app/modules/settings/views/page/settings_page.dart' as _i8;
-import 'package:odoo/app/modules/task_details/view/details/task_details_page.dart'
+import 'package:odoo/app/modules/task_details/view/task_details_page.dart'
     as _i9;
 import 'package:odoo/app/modules/timer_sheets/domain/entities/timesheet.dart'
     as _i13;

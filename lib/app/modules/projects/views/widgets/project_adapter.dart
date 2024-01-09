@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:odoo/app/config/dependence_injection/injection.dart';
+import 'package:odoo/app/modules/projects/bloc/project_bloc.dart';
 import '../../../create_timer/views/widgets/custom_dropdown.dart';
 import '../../model/project.dart';
 
@@ -19,9 +21,15 @@ class ProjectAdapter extends StatelessWidget {
         ),
         horizontalTitleGap: 0,
         title: Text(project.name),
-        trailing: project.isFavorite
-            ? const Icon(Icons.star)
-            : const Icon(Icons.star_border),
+        trailing: IconButton(
+          onPressed: () {
+            getIt<ProjectBloc>().add(UpdateProject(
+                project: project.copyWith(isFavorite: !project.isFavorite)));
+          },
+          icon: project.isFavorite
+              ? const Icon(Icons.star)
+              : const Icon(Icons.star_border),
+        ),
         subtitle: Text('${project.tasks.length} tasks'),
       ),
     );

@@ -22,7 +22,17 @@ class ProjectBloc extends HydratedBloc<ProjectEvent, ProjectState> {
     ));
   }
 
-  void _onUpdateProject(UpdateProject event, Emitter<ProjectState> emit) {}
+  void _onUpdateProject(UpdateProject event, Emitter<ProjectState> emit) {
+    final state = this.state;
+    final project = event.project;
+
+    final int index =
+        state.allProjects.indexWhere((element) => element.id == project.id);
+
+    List<Project> newList = List.from(state.allProjects);
+    newList[index] = project;
+    emit(ProjectState(allProjects: newList));
+  }
 
   @override
   ProjectState? fromJson(Map<String, dynamic> json) {
