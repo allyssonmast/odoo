@@ -17,10 +17,6 @@ _$TimesheetImpl _$$TimesheetImplFromJson(Map<String, dynamic> json) =>
       task: Task.fromJson(json['task'] as Map<String, dynamic>),
       isCountin: json['isCountin'] as bool,
       taskDuration: Duration(microseconds: json['taskDuration'] as int),
-      tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
-      comments: (json['comments'] as List<dynamic>)
-          .map((e) => Comment.fromJson(e as Map<String, dynamic>))
-          .toList(),
       associatedRecords: (json['associatedRecords'] as List<dynamic>)
           .map((e) => Records.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -37,7 +33,5 @@ Map<String, dynamic> _$$TimesheetImplToJson(_$TimesheetImpl instance) =>
       'task': instance.task,
       'isCountin': instance.isCountin,
       'taskDuration': instance.taskDuration.inMicroseconds,
-      'tags': instance.tags,
-      'comments': instance.comments,
       'associatedRecords': instance.associatedRecords,
     };

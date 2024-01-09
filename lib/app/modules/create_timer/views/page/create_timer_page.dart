@@ -1,13 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:odoo/app/config/dependence_injection/injection.dart';
-import 'package:odoo/app/modules/create_projects/domain/entities/task.dart';
-import 'package:odoo/app/modules/create_timer/presentation/views/widgets/custom_dropdown.dart';
-import 'package:odoo/app/modules/create_timer/presentation/views/widgets/custom_textfield.dart';
+import 'package:odoo/app/modules/create_projects/models/task.dart';
 import 'package:odoo/app/modules/local_sheets/bloc/local_sheets_bloc.dart';
 import 'package:odoo/app/modules/projects/bloc/project_bloc.dart';
 import 'package:odoo/app/modules/projects/model/project.dart';
 import 'package:odoo/app/modules/timer_sheets/domain/entities/timesheet.dart';
+
+import '../widgets/custom_dropdown.dart';
+import '../widgets/custom_textfield.dart';
 
 @RoutePage()
 class CreateTimerPage extends StatefulWidget {
@@ -89,8 +90,6 @@ class _CreateTimerPageState extends State<CreateTimerPage> {
                       favorite: favorite,
                       task: task,
                       taskDuration: const Duration(hours: 0),
-                      tags: [],
-                      comments: [],
                       associatedRecords: [],
                     );
                     getIt<LocalSheetsBloc>()

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../create_timer/presentation/views/widgets/custom_dropdown.dart';
+import '../../../create_timer/views/widgets/custom_dropdown.dart';
 import '../../model/project.dart';
 
 class ProjectAdapter extends StatelessWidget {

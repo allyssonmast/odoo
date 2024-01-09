@@ -1,12 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:odoo/app/config/dependence_injection/injection.dart';
-import 'package:odoo/app/modules/create_projects/domain/entities/create_color.dart';
-import 'package:odoo/app/modules/create_timer/presentation/views/widgets/custom_dropdown.dart';
-import 'package:odoo/app/modules/create_timer/presentation/views/widgets/custom_textfield.dart';
+import 'package:odoo/app/modules/create_projects/models/create_color.dart';
 
-import '../../../../projects/bloc/project_bloc.dart';
-import '../../../../projects/model/project.dart';
+import '../../../create_timer/views/widgets/custom_dropdown.dart';
+import '../../../create_timer/views/widgets/custom_textfield.dart';
+import '../../../projects/bloc/project_bloc.dart';
+import '../../../projects/model/project.dart';
 
 @RoutePage()
 class CreateProjectsPage extends StatefulWidget {
@@ -78,7 +78,7 @@ class _CreateProjectsPageState extends State<CreateProjectsPage> {
                     _formKey.currentState?.save();
 
                     var project = Project(
-                      id: 0,
+                      id: DateTime.now().microsecond,
                       name: projectName!,
                       color: color!,
                       isFavorite: isFavote,

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:odoo/app/modules/settings/presentation/cubit/settings_cubit.dart';
 
 import 'app/config/auto_router/routes_imports.dart';
+import 'app/modules/settings/cubit/settings_cubit.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);

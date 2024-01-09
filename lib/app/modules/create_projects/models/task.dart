@@ -1,5 +1,7 @@
-import '../../../timer_sheets/domain/entities/timesheet.dart';
+
 import 'package:json_annotation/json_annotation.dart';
+
+import '../../timer_sheets/domain/entities/timesheet.dart';
 part 'task.g.dart';
 
 @JsonSerializable()

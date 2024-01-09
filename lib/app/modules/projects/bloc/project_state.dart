@@ -23,27 +23,3 @@ class ProjectState extends Equatable {
   }
 }
 
-final class ProjectInitial extends ProjectState {
-  @override
-  List<Object?> get props => [];
-}
-
-class ProjectStateLoaded extends ProjectState {
-  final List<Project> task;
-
-  const ProjectStateLoaded({this.task = const <Project>[]});
-
-  @override
-  List<Object?> get props => [];
-}
-
-class ProjectFailure extends ProjectState {
-  final String errorMessage;
-
-  const ProjectFailure({required this.errorMessage});
-
-  List<Object?> get props => [errorMessage];
-
-  @override
-  String toString() => 'LoginFailure { error: $errorMessage }';
-}

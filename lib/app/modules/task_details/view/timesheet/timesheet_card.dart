@@ -38,9 +38,7 @@ class _TimeSheetCardState extends State<TimeSheetCard> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TimeCustomer(
-              time: timesheet.startTime,
-            ),
+            TimeCustomer(time: timesheet.startTime),
             Row(
               children: [
                 Text(

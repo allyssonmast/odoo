@@ -5,8 +5,7 @@ import 'package:odoo/app/config/shered_widgets/erro/failure.dart';
 import 'package:odoo/app/modules/timer_sheets/domain/entities/timesheet.dart';
 import 'package:odoo/app/modules/timer_sheets/domain/repository/timesheets_repository.dart';
 
-import '../../create_projects/domain/entities/task.dart' as task;
-import '../domain/entities/comment.dart';
+import '../../create_projects/models/task.dart' as task;
 import '../domain/entities/invoice.dart';
 
 @Injectable(as: TimeSheetRepository)
@@ -48,13 +47,6 @@ List<Timesheet> fakeTimeSheets = List.generate(5, (index) {
       timesheets: [],
     ),
     taskDuration: const Duration(hours: 2),
-    tags: ['Tag ${index + 1}'],
-    comments: [
-      Comment(
-        user: 'User1',
-        text: 'Comment 1',
-      ),
-    ],
     associatedRecords: [
       Records(
         invoiceNumber: 'INV${index + 1}',

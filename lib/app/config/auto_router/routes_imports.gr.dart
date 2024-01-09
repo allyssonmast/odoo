@@ -10,21 +10,19 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i11;
 import 'package:flutter/material.dart' as _i12;
-import 'package:odoo/app/modules/create_projects/presentation/views/page/create_timer_page.dart'
+import 'package:odoo/app/modules/create_projects/views/page/create_timer_page.dart'
     as _i1;
-import 'package:odoo/app/modules/create_timer/presentation/views/page/create_timer_page.dart'
+import 'package:odoo/app/modules/create_timer/views/page/create_timer_page.dart'
     as _i2;
-import 'package:odoo/app/modules/dashboard/presentation/views/dashboard_view.dart'
-    as _i3;
-import 'package:odoo/app/modules/favorities_sheets/presentation/views/page/favoritiessheets_page.dart'
+import 'package:odoo/app/modules/dashboard/views/dashboard_view.dart' as _i3;
+import 'package:odoo/app/modules/favorities_sheets/views/page/favoritiessheets_page.dart'
     as _i4;
 import 'package:odoo/app/modules/local_sheets/views/page/localsheets_page.dart'
     as _i5;
-import 'package:odoo/app/modules/odoo_sheets/presentation/views/page/odoosheets_page.dart'
+import 'package:odoo/app/modules/odoo_sheets/views/page/odoosheets_page.dart'
     as _i6;
 import 'package:odoo/app/modules/projects/views/page/projects_page.dart' as _i7;
-import 'package:odoo/app/modules/settings/presentation/views/page/settings_page.dart'
-    as _i8;
+import 'package:odoo/app/modules/settings/views/page/settings_page.dart' as _i8;
 import 'package:odoo/app/modules/task_details/view/details/task_details_page.dart'
     as _i9;
 import 'package:odoo/app/modules/timer_sheets/domain/entities/timesheet.dart'

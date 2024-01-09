@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../../../create_projects/domain/entities/task.dart';
-import 'comment.dart';
+import '../../../create_projects/models/task.dart';
 import 'invoice.dart';
 
 part 'timesheet.freezed.dart';
@@ -18,8 +17,6 @@ class Timesheet with _$Timesheet {
     required Task task,
     required bool isCountin,
     required Duration taskDuration,
-    required List<String> tags,
-    required List<Comment> comments,
     required List<Records> associatedRecords,
   }) = _Timesheet;
 
