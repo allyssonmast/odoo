@@ -7,4 +7,6 @@ class LocalSheetsEvent with _$LocalSheetsEvent {
   AddTimeSheets;
   const factory LocalSheetsEvent.updateProject({required Timesheet timesheet}) =
   UpdateTimeSheets;
+  const factory LocalSheetsEvent.deleteProject({required Timesheet timesheet}) =
+  DeleteTimeSheets;
 }

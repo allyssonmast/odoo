@@ -31,7 +31,7 @@ class _SettingsPageState extends State<SettingsPage> {
   ];
   @override
   Widget build(BuildContext context) {
-    var cubit = context.read<SettingsCubit>();
+    var cubit = context.watch<SettingsCubit>();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Settings'),
@@ -44,7 +44,7 @@ class _SettingsPageState extends State<SettingsPage> {
             children: [
               Card(
                 child: SwitchListTile(
-                  value: cubit.state==Brightness.dark,
+                  value: cubit.state == Brightness.dark,
                   onChanged: (onChanged) {
                     cubit.toggleBrightness();
                   },
@@ -61,9 +61,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 list: listGithub,
               ),
               const CustomDivider(),
-              CustomLisView(
-                list: listPrivacy,
-              ),
+              CustomLisView(list: listPrivacy),
             ],
           ),
         ),

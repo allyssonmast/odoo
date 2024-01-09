@@ -21,6 +21,7 @@ mixin _$LocalSheetsEvent {
     required TResult Function() started,
     required TResult Function(Timesheet timesheet) addProject,
     required TResult Function(Timesheet timesheet) updateProject,
+    required TResult Function(Timesheet timesheet) deleteProject,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$LocalSheetsEvent {
     TResult? Function()? started,
     TResult? Function(Timesheet timesheet)? addProject,
     TResult? Function(Timesheet timesheet)? updateProject,
+    TResult? Function(Timesheet timesheet)? deleteProject,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$LocalSheetsEvent {
     TResult Function()? started,
     TResult Function(Timesheet timesheet)? addProject,
     TResult Function(Timesheet timesheet)? updateProject,
+    TResult Function(Timesheet timesheet)? deleteProject,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$LocalSheetsEvent {
     required TResult Function(_Started value) started,
     required TResult Function(AddTimeSheets value) addProject,
     required TResult Function(UpdateTimeSheets value) updateProject,
+    required TResult Function(DeleteTimeSheets value) deleteProject,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$LocalSheetsEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(AddTimeSheets value)? addProject,
     TResult? Function(UpdateTimeSheets value)? updateProject,
+    TResult? Function(DeleteTimeSheets value)? deleteProject,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$LocalSheetsEvent {
     TResult Function(_Started value)? started,
     TResult Function(AddTimeSheets value)? addProject,
     TResult Function(UpdateTimeSheets value)? updateProject,
+    TResult Function(DeleteTimeSheets value)? deleteProject,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +127,7 @@ class _$StartedImpl implements _Started {
     required TResult Function() started,
     required TResult Function(Timesheet timesheet) addProject,
     required TResult Function(Timesheet timesheet) updateProject,
+    required TResult Function(Timesheet timesheet) deleteProject,
   }) {
     return started();
   }
@@ -131,6 +138,7 @@ class _$StartedImpl implements _Started {
     TResult? Function()? started,
     TResult? Function(Timesheet timesheet)? addProject,
     TResult? Function(Timesheet timesheet)? updateProject,
+    TResult? Function(Timesheet timesheet)? deleteProject,
   }) {
     return started?.call();
   }
@@ -141,6 +149,7 @@ class _$StartedImpl implements _Started {
     TResult Function()? started,
     TResult Function(Timesheet timesheet)? addProject,
     TResult Function(Timesheet timesheet)? updateProject,
+    TResult Function(Timesheet timesheet)? deleteProject,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -155,6 +164,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(AddTimeSheets value) addProject,
     required TResult Function(UpdateTimeSheets value) updateProject,
+    required TResult Function(DeleteTimeSheets value) deleteProject,
   }) {
     return started(this);
   }
@@ -165,6 +175,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(_Started value)? started,
     TResult? Function(AddTimeSheets value)? addProject,
     TResult? Function(UpdateTimeSheets value)? updateProject,
+    TResult? Function(DeleteTimeSheets value)? deleteProject,
   }) {
     return started?.call(this);
   }
@@ -175,6 +186,7 @@ class _$StartedImpl implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(AddTimeSheets value)? addProject,
     TResult Function(UpdateTimeSheets value)? updateProject,
+    TResult Function(DeleteTimeSheets value)? deleteProject,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -266,6 +278,7 @@ class _$AddTimeSheetsImpl implements AddTimeSheets {
     required TResult Function() started,
     required TResult Function(Timesheet timesheet) addProject,
     required TResult Function(Timesheet timesheet) updateProject,
+    required TResult Function(Timesheet timesheet) deleteProject,
   }) {
     return addProject(timesheet);
   }
@@ -276,6 +289,7 @@ class _$AddTimeSheetsImpl implements AddTimeSheets {
     TResult? Function()? started,
     TResult? Function(Timesheet timesheet)? addProject,
     TResult? Function(Timesheet timesheet)? updateProject,
+    TResult? Function(Timesheet timesheet)? deleteProject,
   }) {
     return addProject?.call(timesheet);
   }
@@ -286,6 +300,7 @@ class _$AddTimeSheetsImpl implements AddTimeSheets {
     TResult Function()? started,
     TResult Function(Timesheet timesheet)? addProject,
     TResult Function(Timesheet timesheet)? updateProject,
+    TResult Function(Timesheet timesheet)? deleteProject,
     required TResult orElse(),
   }) {
     if (addProject != null) {
@@ -300,6 +315,7 @@ class _$AddTimeSheetsImpl implements AddTimeSheets {
     required TResult Function(_Started value) started,
     required TResult Function(AddTimeSheets value) addProject,
     required TResult Function(UpdateTimeSheets value) updateProject,
+    required TResult Function(DeleteTimeSheets value) deleteProject,
   }) {
     return addProject(this);
   }
@@ -310,6 +326,7 @@ class _$AddTimeSheetsImpl implements AddTimeSheets {
     TResult? Function(_Started value)? started,
     TResult? Function(AddTimeSheets value)? addProject,
     TResult? Function(UpdateTimeSheets value)? updateProject,
+    TResult? Function(DeleteTimeSheets value)? deleteProject,
   }) {
     return addProject?.call(this);
   }
@@ -320,6 +337,7 @@ class _$AddTimeSheetsImpl implements AddTimeSheets {
     TResult Function(_Started value)? started,
     TResult Function(AddTimeSheets value)? addProject,
     TResult Function(UpdateTimeSheets value)? updateProject,
+    TResult Function(DeleteTimeSheets value)? deleteProject,
     required TResult orElse(),
   }) {
     if (addProject != null) {
@@ -418,6 +436,7 @@ class _$UpdateTimeSheetsImpl implements UpdateTimeSheets {
     required TResult Function() started,
     required TResult Function(Timesheet timesheet) addProject,
     required TResult Function(Timesheet timesheet) updateProject,
+    required TResult Function(Timesheet timesheet) deleteProject,
   }) {
     return updateProject(timesheet);
   }
@@ -428,6 +447,7 @@ class _$UpdateTimeSheetsImpl implements UpdateTimeSheets {
     TResult? Function()? started,
     TResult? Function(Timesheet timesheet)? addProject,
     TResult? Function(Timesheet timesheet)? updateProject,
+    TResult? Function(Timesheet timesheet)? deleteProject,
   }) {
     return updateProject?.call(timesheet);
   }
@@ -438,6 +458,7 @@ class _$UpdateTimeSheetsImpl implements UpdateTimeSheets {
     TResult Function()? started,
     TResult Function(Timesheet timesheet)? addProject,
     TResult Function(Timesheet timesheet)? updateProject,
+    TResult Function(Timesheet timesheet)? deleteProject,
     required TResult orElse(),
   }) {
     if (updateProject != null) {
@@ -452,6 +473,7 @@ class _$UpdateTimeSheetsImpl implements UpdateTimeSheets {
     required TResult Function(_Started value) started,
     required TResult Function(AddTimeSheets value) addProject,
     required TResult Function(UpdateTimeSheets value) updateProject,
+    required TResult Function(DeleteTimeSheets value) deleteProject,
   }) {
     return updateProject(this);
   }
@@ -462,6 +484,7 @@ class _$UpdateTimeSheetsImpl implements UpdateTimeSheets {
     TResult? Function(_Started value)? started,
     TResult? Function(AddTimeSheets value)? addProject,
     TResult? Function(UpdateTimeSheets value)? updateProject,
+    TResult? Function(DeleteTimeSheets value)? deleteProject,
   }) {
     return updateProject?.call(this);
   }
@@ -472,6 +495,7 @@ class _$UpdateTimeSheetsImpl implements UpdateTimeSheets {
     TResult Function(_Started value)? started,
     TResult Function(AddTimeSheets value)? addProject,
     TResult Function(UpdateTimeSheets value)? updateProject,
+    TResult Function(DeleteTimeSheets value)? deleteProject,
     required TResult orElse(),
   }) {
     if (updateProject != null) {
@@ -488,5 +512,163 @@ abstract class UpdateTimeSheets implements LocalSheetsEvent {
   Timesheet get timesheet;
   @JsonKey(ignore: true)
   _$$UpdateTimeSheetsImplCopyWith<_$UpdateTimeSheetsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteTimeSheetsImplCopyWith<$Res> {
+  factory _$$DeleteTimeSheetsImplCopyWith(_$DeleteTimeSheetsImpl value,
+          $Res Function(_$DeleteTimeSheetsImpl) then) =
+      __$$DeleteTimeSheetsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Timesheet timesheet});
+
+  $TimesheetCopyWith<$Res> get timesheet;
+}
+
+/// @nodoc
+class __$$DeleteTimeSheetsImplCopyWithImpl<$Res>
+    extends _$LocalSheetsEventCopyWithImpl<$Res, _$DeleteTimeSheetsImpl>
+    implements _$$DeleteTimeSheetsImplCopyWith<$Res> {
+  __$$DeleteTimeSheetsImplCopyWithImpl(_$DeleteTimeSheetsImpl _value,
+      $Res Function(_$DeleteTimeSheetsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? timesheet = null,
+  }) {
+    return _then(_$DeleteTimeSheetsImpl(
+      timesheet: null == timesheet
+          ? _value.timesheet
+          : timesheet // ignore: cast_nullable_to_non_nullable
+              as Timesheet,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TimesheetCopyWith<$Res> get timesheet {
+    return $TimesheetCopyWith<$Res>(_value.timesheet, (value) {
+      return _then(_value.copyWith(timesheet: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$DeleteTimeSheetsImpl implements DeleteTimeSheets {
+  const _$DeleteTimeSheetsImpl({required this.timesheet});
+
+  @override
+  final Timesheet timesheet;
+
+  @override
+  String toString() {
+    return 'LocalSheetsEvent.deleteProject(timesheet: $timesheet)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteTimeSheetsImpl &&
+            (identical(other.timesheet, timesheet) ||
+                other.timesheet == timesheet));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, timesheet);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteTimeSheetsImplCopyWith<_$DeleteTimeSheetsImpl> get copyWith =>
+      __$$DeleteTimeSheetsImplCopyWithImpl<_$DeleteTimeSheetsImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(Timesheet timesheet) addProject,
+    required TResult Function(Timesheet timesheet) updateProject,
+    required TResult Function(Timesheet timesheet) deleteProject,
+  }) {
+    return deleteProject(timesheet);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(Timesheet timesheet)? addProject,
+    TResult? Function(Timesheet timesheet)? updateProject,
+    TResult? Function(Timesheet timesheet)? deleteProject,
+  }) {
+    return deleteProject?.call(timesheet);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(Timesheet timesheet)? addProject,
+    TResult Function(Timesheet timesheet)? updateProject,
+    TResult Function(Timesheet timesheet)? deleteProject,
+    required TResult orElse(),
+  }) {
+    if (deleteProject != null) {
+      return deleteProject(timesheet);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(AddTimeSheets value) addProject,
+    required TResult Function(UpdateTimeSheets value) updateProject,
+    required TResult Function(DeleteTimeSheets value) deleteProject,
+  }) {
+    return deleteProject(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(AddTimeSheets value)? addProject,
+    TResult? Function(UpdateTimeSheets value)? updateProject,
+    TResult? Function(DeleteTimeSheets value)? deleteProject,
+  }) {
+    return deleteProject?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(AddTimeSheets value)? addProject,
+    TResult Function(UpdateTimeSheets value)? updateProject,
+    TResult Function(DeleteTimeSheets value)? deleteProject,
+    required TResult orElse(),
+  }) {
+    if (deleteProject != null) {
+      return deleteProject(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteTimeSheets implements LocalSheetsEvent {
+  const factory DeleteTimeSheets({required final Timesheet timesheet}) =
+      _$DeleteTimeSheetsImpl;
+
+  Timesheet get timesheet;
+  @JsonKey(ignore: true)
+  _$$DeleteTimeSheetsImplCopyWith<_$DeleteTimeSheetsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

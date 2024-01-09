@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:odoo/app/config/dependence_injection/injection.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:odoo/app/config/shered_widgets/noitem/noitem.dart';
 import 'package:odoo/app/modules/local_sheets/bloc/local_sheets_bloc.dart';
 
@@ -12,7 +12,8 @@ class FavoritiesSheetsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var timeSheet = getIt<LocalSheetsBloc>()
+    var timeSheet = context
+        .watch<LocalSheetsBloc>()
         .state
         .localTimeSheets
         .where((element) => element.favorite)

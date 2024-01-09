@@ -13,6 +13,7 @@ class LocalSheetsBloc extends HydratedBloc<LocalSheetsEvent, LocalSheetsState> {
   LocalSheetsBloc() : super(const LocalSheetsState()) {
     on<AddTimeSheets>(_onAddTimesheet);
     on<UpdateTimeSheets>(_onUpdateTimesheet);
+    on<DeleteTimeSheets>(_onDeleteTimesheet);
   }
   void _onAddTimesheet(AddTimeSheets event, Emitter<LocalSheetsState> emit) {
     final state = this.state;
@@ -32,6 +33,18 @@ class LocalSheetsBloc extends HydratedBloc<LocalSheetsEvent, LocalSheetsState> {
     List<Timesheet> newList = List.from(state.localTimeSheets);
     newList[index] = timesheet;
     emit(LocalSheetsState(localTimeSheets: newList));
+  }
+
+  void _onDeleteTimesheet(
+      DeleteTimeSheets event, Emitter<LocalSheetsState> emit) {
+    final state = this.state;
+    final timesheet = event.timesheet;
+
+    final int index = state.localTimeSheets
+        .indexWhere((element) => element.startTime == timesheet.startTime);
+
+    emit(LocalSheetsState(
+        localTimeSheets: List.from(state.localTimeSheets)..removeAt(index)));
   }
 
   @override

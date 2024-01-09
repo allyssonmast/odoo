@@ -2,10 +2,12 @@ import 'dart:ui';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:injectable/injectable.dart';
 
 part 'settings_state.dart';
 part 'settings_cubit.freezed.dart';
 
+@injectable
 class SettingsCubit extends HydratedCubit<Brightness> {
   SettingsCubit() : super(Brightness.light);
 

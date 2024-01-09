@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:odoo/app/config/dependence_injection/injection.dart';
+import 'package:odoo/app/modules/local_sheets/bloc/local_sheets_bloc.dart';
 import 'package:odoo/app/modules/task_details/view/details/details.dart';
 import 'package:odoo/app/modules/task_details/view/timesheet/timesheet.dart';
 import 'package:odoo/app/modules/timer_sheets/domain/entities/timesheet.dart';
@@ -20,10 +22,16 @@ class TaskDetailsPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(timesheet.associatedProject),
-          actions: const [
+          actions: [
             Padding(
-              padding: EdgeInsets.only(right: 16.0),
-              child: Icon(Icons.edit),
+              padding: const EdgeInsets.only(right: 16.0),
+              child: IconButton(
+                  onPressed: () {
+                    getIt<LocalSheetsBloc>()
+                        .add(DeleteTimeSheets(timesheet: timesheet));
+                    //Navigator.pop(context);
+                  },
+                  icon: const Icon(Icons.delete)),
             )
           ],
           bottom: TabBar(

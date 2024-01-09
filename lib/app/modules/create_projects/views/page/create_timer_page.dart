@@ -20,7 +20,7 @@ class _CreateProjectsPageState extends State<CreateProjectsPage> {
   final _formKey = GlobalKey<FormState>();
   bool isFavote = false;
   String? color;
-  String? projectName;
+  var textController = TextEditingController();
   var listColors = [
     ColorItem('red'),
     ColorItem('green'),
@@ -48,9 +48,9 @@ class _CreateProjectsPageState extends State<CreateProjectsPage> {
                     CustomTextField(
                       label: 'Project name',
                       onSaved: (value) {
-                        projectName = value;
+                        //projectName = value;
                       },
-                      controller: TextEditingController(),
+                      controller: textController,
                     ),
                     DropdownsWidget(
                       dropdownOptions: listColors,
@@ -79,7 +79,7 @@ class _CreateProjectsPageState extends State<CreateProjectsPage> {
 
                     var project = Project(
                       id: DateTime.now().microsecond,
-                      name: projectName!,
+                      name: textController.text,
                       color: color!,
                       isFavorite: isFavote,
                       isCompleted: false,
