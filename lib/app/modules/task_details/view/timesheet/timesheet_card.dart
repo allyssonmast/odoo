@@ -17,13 +17,11 @@ class TimeSheetCard extends StatefulWidget {
 }
 
 class _TimeSheetCardState extends State<TimeSheetCard> {
-  late int seconds;
   late Timesheet timesheet;
 
   @override
   void initState() {
     super.initState();
-    seconds = 0;
     timesheet = widget.timesheet;
     setState(() {});
   }
@@ -117,13 +115,11 @@ class _TimeSheetCardState extends State<TimeSheetCard> {
       if (!timesheet.isCountin) {
         timer.cancel();
       } else {
-        setState(() {
-          seconds++;
-        });
+        var time = timesheet.taskDuration.inSeconds + 1;
+        setState(() {});
         getIt<LocalSheetsBloc>().add(UpdateTimeSheets(
-            timesheet: timesheet.copyWith(
-                taskDuration:
-                    (Duration(seconds: seconds) + timesheet.taskDuration))));
+            timesheet:
+                timesheet.copyWith(taskDuration: Duration(seconds: time))));
       }
     });
     getIt<LocalSheetsBloc>().add(UpdateTimeSheets(

@@ -18,14 +18,6 @@ class TimeSheetAdapter extends StatefulWidget {
 }
 
 class _TimeSheetAdapterState extends State<TimeSheetAdapter> {
-  late int seconds;
-  late Timesheet newTimesheet;
-  @override
-  void initState() {
-    super.initState();
-    newTimesheet = widget.timeSheet;
-    seconds = 0;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +25,7 @@ class _TimeSheetAdapterState extends State<TimeSheetAdapter> {
       child: InkWell(
         onTap: () => context.router.push(
           TaskDetailsPageRoute(
-            timesheet: newTimesheet,
+            timesheet: widget.timeSheet,
           ),
         ),
         child: Padding(
@@ -86,13 +78,12 @@ class _TimeSheetAdapterState extends State<TimeSheetAdapter> {
       if (!widget.timeSheet.isCountin) {
         timer.cancel();
       } else {
-        setState(() {
-          seconds++;
-        });
+        var time = widget.timeSheet.taskDuration.inSeconds + 1;
+        setState(() {});
+
         getIt<LocalSheetsBloc>().add(UpdateTimeSheets(
-            timesheet: widget.timeSheet.copyWith(
-                taskDuration: (Duration(seconds: seconds) +
-                    widget.timeSheet.taskDuration))));
+            timesheet: widget.timeSheet
+                .copyWith(taskDuration: Duration(seconds: time))));
       }
     });
     getIt<LocalSheetsBloc>().add(UpdateTimeSheets(
