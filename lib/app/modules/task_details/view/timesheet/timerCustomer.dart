@@ -17,7 +17,7 @@ class TimeCustomer extends StatelessWidget {
       children: [
         Text(getCustomTime('EEEE'), style: textTheme.bodySmall),
         Text(getCustomTime('dd.MM.yyyy'), style: textTheme.headlineSmall),
-        Text('Start Time ${getCustomTime('MM:hh')}',
+        Text('Start Time ${getCustomTime('HH:mm')}',
             style: textTheme.labelLarge),
       ],
     );

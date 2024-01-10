@@ -1,16 +1,13 @@
 # odoo
 
-A new Flutter project.
+## App demo
 
-## Getting Started
+<div class="row">
+  <img src="/screenshots/01.gif" alt="Exemplo de imagem no README" width="250" />
+  <img src="/screenshots/02.gif" alt="Exemplo de imagem no README" width="250" />
+  <img src="/screenshots/03.gif" alt="Exemplo de imagem no README" width="250" />
+</div>
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<div class="row">
+  <img src="/screenshots/04.gif" alt="Exemplo de imagem no README" width="250" />
+</div>
